@@ -1,0 +1,16 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.DS_Store
+.claude/
+
+reports/report_*.md
+reports/report_*.pdf
+
+testing/reports/*.md
+testing/reports/*.html
+!testing/reports/example_test_report.md
+!testing/reports/example_test_report.html

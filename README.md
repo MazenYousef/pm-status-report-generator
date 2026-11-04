@@ -29,20 +29,7 @@ automate HIL regression execution — take a recurring manual task, make the mac
 on a schedule, and only involve a human when something actually needs a decision.
 
 ## Architecture
-
-```
-Issue Tracker (GitHub / Jira)  ─▶  fetch_issues.py / fetch_jira_issues.py  ─▶  generate_report.py (Claude API)  ─▶  reports/report_<date>_<timestamp>.md
-                                                     ▲                                    │
-                                        .github/workflows/weekly-report.yml               ▼
-                                        (runs every Monday, no manual trigger needed) generate_pdf.py
-                                                                                  (docxtpl / python-docx)
-                                                              templates/weekly_status_template.docx ──┤
-                                                                       (optional)                     ▼
-                                                                                              LibreOffice (soffice)
-                                                                                                        │
-                                                                                                        ▼
-                                                                                  reports/report_<date>_<timestamp>.pdf
-```
+![Architecture](images/architecture.jpg)
 
 Output filenames: `reports/report_<date>_<timestamp>.md` and `reports/report_<date>_<timestamp>.pdf`
 (e.g. `report_2026-07-27_143022.md`) — the timestamp keeps repeated same-day runs from
